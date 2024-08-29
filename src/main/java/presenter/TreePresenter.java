@@ -1,8 +1,8 @@
 package presenter;
 
 import model.Person;
-import model.Tree;
-import model.FileHandler;
+import model.ITree;
+import model.IFileHandler;
 import view.TreeView;
 
 import java.io.IOException;
@@ -10,11 +10,11 @@ import java.util.Collections;
 import java.util.Comparator;
 
 public class TreePresenter {
-    private Tree<Person> tree;
+    private ITree<Person> tree;
     private TreeView view;
-    private FileHandler<Tree<Person>> fileHandler;
+    private IFileHandler<ITree<Person>> fileHandler;
 
-    public TreePresenter(Tree<Person> tree, TreeView view, FileHandler<Tree<Person>> fileHandler) {
+    public TreePresenter(ITree<Person> tree, TreeView view, IFileHandler<ITree<Person>> fileHandler) {
         this.tree = tree;
         this.view = view;
         this.fileHandler = fileHandler;
@@ -52,4 +52,3 @@ public class TreePresenter {
         Collections.sort(tree.getMembers(), Comparator.comparing(Person::getBirthDate));
     }
 }
-

@@ -3,6 +3,8 @@ package genealogy_tree;
 import model.Person;
 import model.Tree;
 import model.FileHandler;
+import model.ITree;
+import model.IFileHandler;
 import presenter.TreePresenter;
 import view.TreeView;
 
@@ -10,9 +12,9 @@ import java.util.Date;
 
 public class Main {
     public static void main(String[] args) {
-        Tree<Person> tree = new Tree<>();
+        ITree<Person> tree = new Tree<>();
         TreeView view = new TreeView();
-        FileHandler<Tree<Person>> fileHandler = new FileHandler<>();
+        IFileHandler<ITree<Person>> fileHandler = new FileHandler<>();
         TreePresenter presenter = new TreePresenter(tree, view, fileHandler);
 
         Person parent = new Person("John Doe", new Date(1980, 1, 1));
@@ -27,4 +29,6 @@ public class Main {
         presenter.displayTree();
     }
 }
+
+
 

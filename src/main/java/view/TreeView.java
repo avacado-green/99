@@ -1,10 +1,10 @@
 package view;
 
 import model.Person;
-import model.Tree;
+import model.ITree;
 
 public class TreeView {
-    public void displayTree(Tree<Person> tree) {
+    public void displayTree(ITree<Person> tree) {
         for (Person person : tree) {
             System.out.println("Name: " + person.getName() + ", Birth Date: " + person.getBirthDate());
             for (Person child : person.getChildren()) {
@@ -13,4 +13,5 @@ public class TreeView {
         }
     }
 }
+
 
